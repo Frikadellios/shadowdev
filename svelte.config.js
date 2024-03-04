@@ -1,4 +1,4 @@
-import { vitePreprocess } from '@astrojs/svelte';
+import { vitePreprocess } from "@astrojs/svelte";
 import adapter from "svelte-adapter-bun";
 
 export default {
@@ -7,6 +7,6 @@ export default {
 		adapter: adapter(),
 		alias: {
 			"@/*": "./src/components/*",
-		  },
-	  }
+		},
+	},
 };

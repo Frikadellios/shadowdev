@@ -1,41 +1,41 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import { ModeWatcher } from "mode-watcher";
-type Props = CollectionEntry<'blog'>['data'];
+import type { CollectionEntry } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import { ModeWatcher } from 'mode-watcher'
+type Props = CollectionEntry<'blog'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 ---
+
 <script is:inline>
 	const getThemePreference = () => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
+			return localStorage.getItem('theme')
 		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
- 
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+	}
+	const isDark = getThemePreference() === 'dark'
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+
 	if (typeof localStorage !== 'undefined') {
 		const observer = new MutationObserver(() => {
-			const isDark = document.documentElement.classList.contains('dark');
-			localStorage.setItem('theme', isDark ? 'dark' : 'light');
-		});
-		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+			const isDark = document.documentElement.classList.contains('dark')
+			localStorage.setItem('theme', isDark ? 'dark' : 'light')
+		})
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
 	}
 </script>
 <html lang="en" class="bg-backgroud text-foreground">
 	<head>
 		<BaseHead title={title} description={description} />
-		
 	</head>
 
-	<body >
+	<body>
 		<Header />
-		
+
 		<main>
 			<ModeWatcher />
 			<article>
