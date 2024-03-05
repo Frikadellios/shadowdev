@@ -1,11 +1,14 @@
 ---
+import "../styles/global.css"
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
-import Button from "../components/components/ui/button/button.svelte"
+import Buttons from "$lib/components/ui/button/button-var.svelte"
+import Card from "$lib/components/cardko.svelte"
 ---
 
 
 	<Layout> 
 		<Header />
-		
+		<Buttons />
+		<Card />
 	</Layout>

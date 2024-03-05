@@ -26,8 +26,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "baseUrl": ".",
     "paths": {
-      "$lib": ["./src/components"],
-      "$lib/*": ["./src/components/*"]
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
     },
     "plugins": [
       {

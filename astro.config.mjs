@@ -13,8 +13,8 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        $lib: path.resolve("./src/components")
-      }
+        $lib: path.resolve("./src/lib"),
+      },
     },
     plugins: [yaml(),
       million.vite({
@@ -27,9 +27,7 @@ export default defineConfig({
     })]
   },
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), react(), svelte({
-    preprocess: []
-  }), tailwind({
+  integrations: [mdx(), sitemap(), react(), svelte(), tailwind({
     applyBaseStyles: false,
   }),]
 });

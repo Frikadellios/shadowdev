@@ -1,13 +1,17 @@
 import { vitePreprocess } from '@astrojs/svelte';
 import adapter from "svelte-adapter-bun";
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	preprocess: vitePreprocess(),
+	compilerOptions: { hydratable: true },
 	kit: {
-		adapter: adapter(),
-		alias: {
-				"@/*": "./src/components/*",
-	  	}
-	},
-  preprocess: vitePreprocess(),
+	  adapter: adapter(),
+	alias: {
+		"@/*": "./src/lib",
+		}
+    }
 };
+
+	export default config;
 	
